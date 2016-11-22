@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:15:46 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/21 18:10:00 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/22 11:20:26 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,72 @@ void	ft_rotation(t_stack *a, t_stack *b)
 {
 	if (ft_can_rrotate(a) == 1)
 		ft_rot_stack("rra", "ft_sort", a, b);
-	else if (ft_can_rotate(a) == 1)
+	if (ft_can_rotate(a) == 1)
 		ft_rot_stack("ra", "ft_sort", a, b);
 }
 
 void	ft_swaping(t_stack *a, t_stack *b)
 {
-	if (ft_numcmp(a) == 1)
+	if (ft_numcmp(a) == 1 && ft_numcmp(b) == -1)
+		ft_swap_in("ss", "ft_sort", a, b);
+	else if (ft_numcmp(a) == 1)
 	{
 		ft_swap_in("sa", "ft_sort", a, b);
 		//ft_done(a, b);
 		if (!ft_issorted(a))
 			ft_push_in("pb", "ft_sort", a, b);
 	}
-	else if (!ft_issorted(a))
+	else if (ft_numcmp(b) == -1)
+		ft_swap_in("sb", "ft_sort", a, b);
+	if (!ft_issorted(a))
 		ft_push_in("pb", "ft_sort", a, b);
+}
+
+int		ft_get_biggest(t_stack *a)
+{
+	int		tmp;
+	t_stack	*b;
+
+	if (a->size > 0)
+	{
+		tmp = ft_top(a);
+		b = ft_new_stack(a->max_elem);
+		while (!ft_isempty(a))
+		{
+			if (tmp < ft_top(a))
+				tmp = ft_top(a);
+			ft_push(ft_pop(a), b);
+		}
+		while (!ft_isempty(b))
+			ft_push(ft_pop(b), a);
+		free(b->elements);
+		free(b);
+		return (tmp);
+	}
+	return (INT_MIN);
+}
+int		ft_get_smallest(t_stack *a)
+{
+	int		tmp;
+	t_stack	*b;
+
+	if (a->size > 0)
+	{
+		tmp = ft_top(a);
+		b = ft_new_stack(a->max_elem);
+		while (!ft_isempty(a))
+		{
+			if (tmp > ft_top(a))
+				tmp = ft_top(a);
+			ft_push(ft_pop(a), b);
+		}
+		while (!ft_isempty(b))
+			ft_push(ft_pop(b), a);
+		free(b->elements);
+		free(b);
+		return (tmp);
+	}
+	return (INT_MAX);
 }
 
 void	ft_sort(t_stack *a)
@@ -92,9 +143,14 @@ void	ft_sort(t_stack *a)
 	while (!ft_done(a, b))
 	{
 		ft_rotation(a, b);
-		ft_print_stack(a, "a");
 		if (ft_issorted(a) == 1 && ft_isrsorted(b) == 1)
-			ft_push_in("pa", "ft_sort", a, b);
+		{
+			if (ft_get_smallest(a) > ft_get_biggest(b))
+				while (!ft_isempty(b))
+					ft_push_in("pa", "ft_sort", a, b);
+			else
+				ft_push_in("pa", "ft_sort", a, b);
+		}
 		//ft_done(a, b);
 		ft_swaping(a, b);
 		while (!ft_isempty(b) && ft_numcmp(b) == -1)

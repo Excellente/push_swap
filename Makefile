@@ -6,7 +6,7 @@
 #    By: emsimang <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/23 16:21:43 by emsimang          #+#    #+#              #
-#    Updated: 2016/11/21 17:14:25 by emsimang         ###   ########.fr        #
+#    Updated: 2016/11/22 08:15:37 by emsimang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(NAME) :
 	mv $(OBJ) $(OBJDIR)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-	clear
+	#clear
 
 $(PUSH):
 	$(CC) $(WFLAGS) ./objs/push_swap.o -I$(INCDIR) $(NAME) $(LIBFT) -o $(PUSH)

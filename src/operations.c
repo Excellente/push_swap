@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:12:18 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/21 16:04:48 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/22 11:23:57 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_rot_stack(char *op_name, char *caller, t_stack *a, t_stack *b)
 		ft_putop(op_name);
 }
 
-void	ft_swap_in(char *op_name, char * caller, t_stack *a, t_stack *b)
+void	ft_swap_in(char *op_name, char *caller, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(op_name, "sa") == 0)
 		ft_swap(a, op_name);

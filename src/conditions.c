@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:56:30 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/21 17:52:35 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/22 11:22:37 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int		ft_numcmp(t_stack *p)
 	return (12345);
 }
 
-int	ft_can_rotate(t_stack *p)
+int		ft_can_rotate(t_stack *p)
 {
-	int	top;
-	int	bottom;
-	t_stack *q;
+	int		top;
+	int		bottom;
+	t_stack	*q;
 
 	if (p->size > 1)
 	{
@@ -54,6 +54,8 @@ int	ft_can_rotate(t_stack *p)
 		while (!ft_isempty(q))
 			ft_push(ft_pop(q), p);
 		ft_push(top, p);
+		free(q->elements);
+		free(q);
 		if (top > bottom)
 			return (1);
 		else if (top == bottom)
@@ -61,16 +63,14 @@ int	ft_can_rotate(t_stack *p)
 		else if (top < bottom)
 			return (-1);
 	}
-	free(q->elements);
-	free(q);
 	return (12345);
 }
 
-int	ft_can_rrotate(t_stack *p)
+int		ft_can_rrotate(t_stack *p)
 {
-	int	top;
-	int	top2;
-	int	bottom;
+	int		top;
+	int		top2;
+	int		bottom;
 	t_stack	*q;
 
 	if (p->size > 1)
@@ -85,11 +85,11 @@ int	ft_can_rrotate(t_stack *p)
 		while (!ft_isempty(q))
 			ft_push(ft_pop(q), p);
 		ft_push(top, p);
+		free(q->elements);
+		free(q);
 		if (top > bottom && top2 > bottom && top < top2)
 			return (1);
 		return (0);
 	}
-	free(q->elements);
-	free(q);
 	return (12345);
 }

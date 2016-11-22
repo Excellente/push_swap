@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:28:57 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/21 18:07:37 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/22 12:13:16 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int main(int ac, char **av)
 	char	**elem;
 	t_stack *p;
 
-	i = 0;
 	if (ac == 2)
 	{
 		i = 0;
@@ -45,7 +44,8 @@ int main(int ac, char **av)
 			ft_putstr("OK\n");
 	}
 	else
-		ft_print_error("ERROR!\n");
+		ft_print_error("ERROR\n");
+	i = 0;
 	while (elem[i])
 		free(elem[i++]);
 	free(elem);

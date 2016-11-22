@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/15 14:36:11 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/21 15:35:40 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/22 11:57:32 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ size_t	ft_strslen(char **s);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strstr(char *str, char *substr);
+char	*ft_strtrim(const char *s);
 char	*ft_strdup(const char *s);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strncat(char *s1, char const *s2, size_t n);

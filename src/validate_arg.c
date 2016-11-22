@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:20:44 by emsimang          #+#    #+#             */
-/*   Updated: 2016/09/05 13:39:20 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/22 11:32:28 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_validate_args(char *str)
 {
-	int index;
-	char **elems;
+	int		index;
+	char	**elems;
 
 	index = 0;
 	elems = ft_strsplit(str, ' ');
@@ -43,7 +43,7 @@ void	ft_error_repeat(char **str)
 	{
 		i = index + 1;
 		word = str[index];
-		if (ft_strlen(word) > 10)
+		if (ft_strlen(word) > 10 || ft_atoi(word) > INT_MAX)
 			ft_print_error("ERROR! > maximum int\n");
 		while (str[i] != '\0')
 		{

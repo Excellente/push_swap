@@ -6,7 +6,7 @@
 #    By: emsimang <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/13 14:17:32 by emsimang          #+#    #+#              #
-#    Updated: 2016/11/21 15:30:54 by emsimang         ###   ########.fr        #
+#    Updated: 2016/11/22 11:58:02 by emsimang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC	 = ft_atoi.c\
 	   ft_putstr_fd.c\
 	   ft_putchar_fd.c\
 	   ft_strsplit.c\
+	   ft_strtrim.c\
 	   ft_strslen.c\
 	   ft_bzero.c\
 	   ft_isalnum.c\

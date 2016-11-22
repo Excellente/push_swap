@@ -4,6 +4,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
 # include "libft.h"
 # define ERROR '0'
 
@@ -32,7 +33,9 @@ int		ft_analyze(t_stack *p);
 int		ft_issorted(t_stack *p);
 int		ft_isrsorted(t_stack *p);
 int		ft_can_rotate(t_stack *p);
+int		ft_get_biggest(t_stack *p);
 int		ft_can_rrotate(t_stack *p);
+int		ft_get_smallest(t_stack *p);
 void	ft_error(char *e);
 void	ft_putop(char *o);
 void	ft_rotate(t_stack *p);
