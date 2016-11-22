@@ -34,17 +34,11 @@ void	ft_rrotate(t_stack *a)
 	if (a->size > 1)
 	{
 		b = ft_new_stack(a->max_elem);
-		while (a->size > 0)
-		{
+		while (!ft_isempty(a))
 			ft_push_in("pb", "ft_rrotate", a, b);
-			ft_pop(a);
-		}
 		tmp = ft_pop(b);
-		while (b->size > 0)
-		{
+		while (!ft_isempty(b))
 			ft_push_in("pa", "ft_rrotate", a, b);
-			ft_pop(b);
-		}
 		ft_push(tmp, a);
 		free(b->elements);
 		free(b);

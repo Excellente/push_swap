@@ -14,8 +14,8 @@
 
 void	ft_putop(char *op_name)
 {
-	write(1, op_name, ft_strlen(op_name));
-	write(1, "\n", 1);
+	ft_putstr_fd(0, op_name);
+	ft_putstr("\n");
 }
 
 void	ft_push_in(char *op_name, char *caller, t_stack *a, t_stack *b)

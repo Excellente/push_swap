@@ -26,7 +26,6 @@ struct	s_index
 	char	**sptr;
 };
 
-int		ft_atoi(char *str);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_isalnum(int c);
@@ -34,6 +33,8 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_atoi(char *str);
+int		ft_power(int b, int i);
 int		ft_strequ(const char *s1, const char *s2);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(char *s1, char *s2, size_t n);
@@ -53,6 +54,8 @@ char	*ft_strnew(size_t size);
 char	**ft_strsplit(char *s, char c);
 void	ft_putchar(int c);
 void	ft_putstr(char *s);
+void	ft_putchar_fd(int fd, int c);
+void	ft_putstr_fd(int fd, char *s);
 void	*ft_memset(void *ptr, int value, size_t num);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, void *src, size_t n);

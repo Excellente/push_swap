@@ -27,4 +27,8 @@ void	ft_init_stack(t_stack **p, char *av)
 		num = ft_atoi(elem[i]);
 		ft_push(num, *p);
 	}
+	i = 0;
+	while (elem[i])
+		free(elem[i++]);
+	free(elem);
 }

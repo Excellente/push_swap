@@ -28,7 +28,7 @@ FTOBJS  = $(addprefix $(FT_OBJDIR), $(FT_OBJ))
 SRCS	= $(addprefix $(SRCDIR), $(SRC))
 OBJS	= $(addprefix $(OBJDIR), $(OBJ))
 
-all: $(NAME) $(PUSH)
+all: $(NAME) $(PUSH) $(CHECK)
 
 $(NAME) :
 	cd libft && make && cd ..
@@ -36,12 +36,12 @@ $(NAME) :
 	mv $(OBJ) $(OBJDIR)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-	#clear
+	clear
 
 $(PUSH):
 	$(CC) $(WFLAGS) ./objs/push_swap.o -I$(INCDIR) $(NAME) $(LIBFT) -o $(PUSH)
 
-checker:
+$(CHECK):
 	$(CC) $(CFLAGS) ./objs/checker.o $(NAME) -I $(INCDIR) $(LIBFT) -o $(CHECK)
 
 clean:
