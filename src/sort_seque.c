@@ -17,9 +17,9 @@ int		ft_isrsorted(t_stack *a)
 	int		ret;
 	t_stack	*b;
 
-	b = ft_new_stack(a->max_elem);
 	if (a->size > 0)
 	{
+		b = ft_new_stack(a->max_elem);
 		ft_push(ft_pop(a), b);
 		while (!ft_isempty(a) && (ft_top(a) < ft_top(b)))
 			ft_push(ft_pop(a), b);
@@ -82,10 +82,12 @@ void	ft_swaping(t_stack *a, t_stack *b)
 		if (!ft_issorted(a))
 			ft_push_in("pb", "ft_sort", a, b);
 	}
-	else if (ft_numcmp(b) == -1)
+	if (ft_numcmp(b) == -1)
 		ft_swap_in("sb", "ft_sort", a, b);
-	if (!ft_issorted(a))
+	///*
+	   if (!ft_issorted(a))
 		ft_push_in("pb", "ft_sort", a, b);
+	//*/
 }
 
 int		ft_get_biggest(t_stack *a)
@@ -140,6 +142,7 @@ void	ft_sort(t_stack *a)
 	t_stack	*b;
 
 	b = ft_new_stack(a->max_elem);
+	ft_strcpy(b->name, "tmp");
 	while (!ft_done(a, b))
 	{
 		ft_rotation(a, b);
@@ -148,8 +151,13 @@ void	ft_sort(t_stack *a)
 			if (ft_get_smallest(a) > ft_get_biggest(b))
 				while (!ft_isempty(b))
 					ft_push_in("pa", "ft_sort", a, b);
-			else
+			//else
+			//	ft_push_in("pa", "ft_sort", a, b);
+			else if (ft_top(a) > ft_top(b))
 				ft_push_in("pa", "ft_sort", a, b);
+			else
+				ft_push_in("pb", "ft_sort", a, b);
+			//
 		}
 		//ft_done(a, b);
 		ft_swaping(a, b);
@@ -162,6 +170,7 @@ void	ft_sort(t_stack *a)
 			while (!ft_isempty(b))
 				ft_push_in("pa", "ft_sort", a, b);
 		//ft_done(a, b);
+		ft_print_stack(a, a->name);
 	}
 	free(b->elements);
 	free(b);

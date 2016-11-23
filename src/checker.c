@@ -28,7 +28,7 @@ int main(int ac, char **av)
 		size = ft_strslen(elem);
 		p = ft_new_stack(size);
 		ft_init_stack(&p, av[1]);
-		ft_print_stack(p, "p");
+		//ft_print_stack(p, "p");
 	}
 	else
 		ft_print_error("ERROR!\n");

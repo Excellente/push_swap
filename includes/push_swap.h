@@ -22,6 +22,7 @@ struct	s_stack
 	int	size;
 	int	max_elem;
 	int	*elements;
+	char	name[10];
 };
 
 int		ft_top(t_stack *p);

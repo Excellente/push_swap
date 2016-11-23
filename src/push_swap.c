@@ -29,6 +29,7 @@ int main(int ac, char **av)
 		if (size > 1)
 		{
 			p = ft_new_stack(size);
+			ft_strcpy(p->name, "a");
 			ft_init_stack(&p, av[1]);
 			//ft_print_stack(p, "a");
 			ft_sort(p);

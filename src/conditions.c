@@ -47,6 +47,7 @@ int		ft_can_rotate(t_stack *p)
 	if (p->size > 1)
 	{
 		q = ft_new_stack(p->max_elem);
+		ft_strcpy(q->name, "q_tmp");
 		top = ft_pop(p);
 		while (p->size > 1)
 			ft_push(ft_pop(p), q);
@@ -76,7 +77,7 @@ int		ft_can_rrotate(t_stack *p)
 	if (p->size > 1)
 	{
 		q = ft_new_stack(p->max_elem);
-		top = ft_pop(p);
+		top = ft_top(p);
 		while (p->size > 2)
 			ft_push(ft_pop(p), q);
 		top2 = ft_pop(p);
@@ -84,7 +85,6 @@ int		ft_can_rrotate(t_stack *p)
 		ft_push(top2, p);
 		while (!ft_isempty(q))
 			ft_push(ft_pop(q), p);
-		ft_push(top, p);
 		free(q->elements);
 		free(q);
 		if (top > bottom && top2 > bottom && top < top2)

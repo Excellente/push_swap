@@ -27,7 +27,9 @@ int		ft_top(t_stack *p)
 	if (p->size > 0)
 		return (p->elements[top]);
 	else
-		ft_print_error("Error: stack is empty.\n");
+	{
+		ft_print_error(" Error: [top]empty stack.\n");
+	}
 	return (ERROR - 48);
 }
 
@@ -47,7 +49,8 @@ int		ft_pop(t_stack *p)
 	else
 	{
 		val = '\0';
-		ft_print_error("Error: stack is empty.\n");
+		ft_putstr_fd(2,p->name);
+		ft_print_error(" Error: [pop]empty stack.\n");
 	}
 	return (val);
 }
@@ -67,8 +70,9 @@ void	ft_print_stack(t_stack *p, char *n)
 		i++;
 		j--;
 	}
-	printf("-\n");
+	printf("--\n");
 	printf("%s\n", n);
+	printf("\n");
 }
 
 t_stack	*ft_new_stack(int max_elem)

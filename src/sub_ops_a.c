@@ -54,10 +54,10 @@ void	ft_rotate(t_stack *a)
 	{
 		b = ft_new_stack(a->max_elem);
 		tmp = ft_pop(a);
-		while (a->size > 0)
+		while (!ft_isempty(a))
 			ft_push_in("pb", "ft_rotate", a, b);
 		ft_push(tmp, a);
-		while (b->size > 0)
+		while (!ft_isempty(b))
 			ft_push_in("pa", "ft_rotate", a, b);
 		free(b->elements);
 		free(b);

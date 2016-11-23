@@ -24,13 +24,19 @@ void	ft_push_in(char *op_name, char *caller, t_stack *a, t_stack *b)
 
 	if (ft_strcmp(op_name, "pa") == 0)
 	{
-		tmp = ft_pop(b);
-		ft_push(tmp, a);
+		if (b->size > 0)
+		{
+			tmp = ft_pop(b);
+			ft_push(tmp, a);
+		}
 	}
 	else if (ft_strcmp(op_name, "pb") == 0)
 	{
-		tmp = ft_pop(a);
-		ft_push(tmp, b);
+		if (a->size > 0)
+		{
+			tmp = ft_pop(a);
+			ft_push(tmp, b);
+		}
 	}
 	if (ft_strcmp(caller, "ft_sort") == 0)
 		ft_putop(op_name);
