@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:15:46 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/22 11:20:26 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/23 17:59:15 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,15 @@ int	ft_done(t_stack *a, t_stack *b)
 
 void	ft_rotation(t_stack *a, t_stack *b)
 {
-	if (ft_can_rrotate(a) == 1)
+	if (ft_can_rrotate_a(a) == 1 && ft_can_rrotate_b(b) == 1)
+		ft_rot_stack("rrr", "ft_sort", a, b);
+	if (ft_can_rrotate_a(a) == 1 && ft_can_rrotate_b(b) != 1 && ft_numcmp(a) != 1)
 		ft_rot_stack("rra", "ft_sort", a, b);
-	if (ft_can_rotate(a) == 1)
+	if (ft_can_rotate_a(a) == 1 && ft_can_rrotate_a(a) != 1)
 		ft_rot_stack("ra", "ft_sort", a, b);
+	if (ft_can_rotate_b(b) == 1)
+		ft_rot_stack("rb", "ft_sort", a, b);
+
 }
 
 void	ft_swaping(t_stack *a, t_stack *b)
@@ -79,13 +84,15 @@ void	ft_swaping(t_stack *a, t_stack *b)
 	{
 		ft_swap_in("sa", "ft_sort", a, b);
 		//ft_done(a, b);
-		if (!ft_issorted(a))
+		///*
+		if (!ft_issorted(a) && ft_can_rrotate_a(a) != 1)
 			ft_push_in("pb", "ft_sort", a, b);
+		//*/
 	}
 	if (ft_numcmp(b) == -1)
 		ft_swap_in("sb", "ft_sort", a, b);
 	///*
-	   if (!ft_issorted(a))
+	   if (!ft_issorted(a) && ft_can_rrotate_a(a) != 1)
 		ft_push_in("pb", "ft_sort", a, b);
 	//*/
 }
@@ -151,13 +158,13 @@ void	ft_sort(t_stack *a)
 			if (ft_get_smallest(a) > ft_get_biggest(b))
 				while (!ft_isempty(b))
 					ft_push_in("pa", "ft_sort", a, b);
-			//else
-			//	ft_push_in("pa", "ft_sort", a, b);
-			else if (ft_top(a) > ft_top(b))
+			else
+				ft_push_in("pa", "ft_sort", a, b);
+			/*else if (ft_top(a) > ft_top(b))
 				ft_push_in("pa", "ft_sort", a, b);
 			else
 				ft_push_in("pb", "ft_sort", a, b);
-			//
+			*/
 		}
 		//ft_done(a, b);
 		ft_swaping(a, b);
@@ -170,7 +177,7 @@ void	ft_sort(t_stack *a)
 			while (!ft_isempty(b))
 				ft_push_in("pa", "ft_sort", a, b);
 		//ft_done(a, b);
-		ft_print_stack(a, a->name);
+		//ft_print_stack(a, a->name);
 	}
 	free(b->elements);
 	free(b);

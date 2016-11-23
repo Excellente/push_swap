@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:28:57 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/22 13:33:02 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/23 18:04:43 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int main(int ac, char **av)
 			p = ft_new_stack(size);
 			ft_strcpy(p->name, "a");
 			ft_init_stack(&p, av[1]);
-			//ft_print_stack(p, "a");
+			ft_print_stack(p, "a");
 			ft_sort(p);
 			if (ft_issorted(p) == 1)
 				ft_putstr("OK\n");
 			else
 				ft_putstr("KO\n");
-			//ft_print_stack(p, "a");
+			ft_print_stack(p, "a");
 			free(p->elements);
 			free(p);
 		}
