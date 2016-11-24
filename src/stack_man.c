@@ -66,13 +66,14 @@ void	ft_print_stack(t_stack *p, char *n)
 	tmp = p->elements;
 	while (i < p->size)
 	{
-		printf("%d\n", tmp[j]);
+		ft_putnbr(tmp[j]);
+		ft_putstr("\n");
 		i++;
 		j--;
 	}
-	printf("--\n");
-	printf("%s\n", n);
-	printf("\n");
+	ft_putstr("--\n");
+	ft_putstr(n);
+	ft_putstr("\n");
 }
 
 t_stack	*ft_new_stack(int max_elem)

@@ -27,14 +27,3 @@ void	ft_putnbr(int nb)
 	else
 		ft_putchar(nb + '0');
 }
-
-void	ft_put_uint(unsigned int nb)
-{
-	if (nb >= 10)
-	{
-		ft_put_uint(nb / 10);
-		ft_put_uint(nb % 10);
-	}
-	else
-		ft_putchar(nb + '0');
-}

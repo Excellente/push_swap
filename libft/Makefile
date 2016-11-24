@@ -15,6 +15,7 @@ CFLAGS	 = -c -Wall -Wextra -Werror
 NAME     = libft.a
 
 SRC	 = ft_atoi.c\
+	   ft_putnbr_fd.c\
 	   ft_putstr_fd.c\
 	   ft_putchar_fd.c\
 	   ft_strsplit.c\

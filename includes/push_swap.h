@@ -6,6 +6,10 @@
 # include <string.h>
 # include <limits.h>
 # include "libft.h"
+//debugging
+# include <fcntl.h>
+# include <sys/types.h>
+//debugging
 # define ERROR '0'
 
 typedef	struct	s_stack	t_stack;
@@ -33,12 +37,12 @@ int		ft_isempty(t_stack *p);
 int		ft_analyze(t_stack *p);
 int		ft_issorted(t_stack *p);
 int		ft_isrsorted(t_stack *p);
-int		ft_can_rotate_a(t_stack *p);
-int		ft_can_rotate_b(t_stack *b);
+int		ft_can_rotate(t_stack *p);
 int		ft_get_biggest(t_stack *p);
-int		ft_can_rrotate_a(t_stack *p);
-int		ft_can_rrotate_b(t_stack *p);
+int		ft_can_rrotate(t_stack *p);
 int		ft_get_smallest(t_stack *p);
+int		ft_can_rr(t_stack *a, t_stack *b);
+int		ft_can_rrr(t_stack *a, t_stack *b);
 void	ft_error(char *e);
 void	ft_putop(char *o);
 void	ft_rotate(t_stack *p);

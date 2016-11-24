@@ -35,10 +35,10 @@ void	ft_rrotate(t_stack *a)
 	{
 		b = ft_new_stack(a->max_elem);
 		while (!ft_isempty(a))
-			ft_push_in("pb", "ft_rrotate", a, b);
+			ft_push(ft_pop(a), b);
 		tmp = ft_pop(b);
 		while (!ft_isempty(b))
-			ft_push_in("pa", "ft_rrotate", a, b);
+			ft_push(ft_pop(b), a);
 		ft_push(tmp, a);
 		free(b->elements);
 		free(b);
@@ -55,10 +55,10 @@ void	ft_rotate(t_stack *a)
 		b = ft_new_stack(a->max_elem);
 		tmp = ft_pop(a);
 		while (!ft_isempty(a))
-			ft_push_in("pb", "ft_rotate", a, b);
+			ft_push(ft_pop(a), b);
 		ft_push(tmp, a);
 		while (!ft_isempty(b))
-			ft_push_in("pa", "ft_rotate", a, b);
+			ft_push(ft_pop(b), a);
 		free(b->elements);
 		free(b);
 	}

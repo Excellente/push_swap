@@ -38,6 +38,8 @@ void	ft_push_in(char *op_name, char *caller, t_stack *a, t_stack *b)
 			ft_push(tmp, b);
 		}
 	}
+	else
+		ft_print_error("ERROR\n");
 	if (ft_strcmp(caller, "ft_sort") == 0)
 		ft_putop(op_name);
 }
@@ -62,6 +64,8 @@ void	ft_rot_stack(char *op_name, char *caller, t_stack *a, t_stack *b)
 		ft_rrotate(a);
 		ft_rrotate(b);
 	}
+	else
+		ft_print_error("ERROR\n");
 	if (ft_strcmp(caller, "ft_sort") == 0)
 		ft_putop(op_name);
 }
@@ -77,6 +81,8 @@ void	ft_swap_in(char *op_name, char *caller, t_stack *a, t_stack *b)
 		ft_swap(a, "");
 		ft_swap(b, "");
 	}
+	else
+		ft_print_error("ERROR\n");
 	if (ft_strcmp(caller, "ft_sort") == 0)
 		ft_putop(op_name);
 }

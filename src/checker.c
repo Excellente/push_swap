@@ -17,21 +17,23 @@ int main(int ac, char **av)
 	int		i;
 	int		tmp;
 	int		size;
+	char	buff[2];
 	char	**elem;
 	t_stack	*p;
 
 	i = 0;
+	buff[2] = '\0';
 	if (ac == 2)
 	{
+		tmp = read(STDIN_FILENO, buff, 1);
 		ft_validate_args(av[1]);
 		elem = ft_strsplit(av[1], ' ');
 		size = ft_strslen(elem);
 		p = ft_new_stack(size);
 		ft_init_stack(&p, av[1]);
+
 		//ft_print_stack(p, "p");
 	}
-	else
-		ft_print_error("ERROR!\n");
 	while (elem[i])
 		free(elem[i++]);
 	free(elem);
