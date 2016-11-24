@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/17 12:54:40 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/24 09:19:06 by emsimang         ###   ########.fr       */
+/*   Created: 2016/11/01 08:48:28 by emsimang          #+#    #+#             */
+/*   Updated: 2016/11/24 15:43:41 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 8
+# include <stdlib.h>
+# include <unistd.h>
+# include <string.h>
+# include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+typedef	struct	s_read
 {
-	char	*tmp;
 	int		i;
-	int		k;
-	int		result;
+	int		ret;
+	int		last;
+	int		index;
+	char	buff[BUFF_SIZE + 1];
+}				t_read;
 
-	result = (ft_strlen((char*)s1) + ft_strlen((char*)s2));
-	tmp = (char*)malloc(sizeof(char) * result);
-	ft_strcpy(tmp, s1);
-	i = 0;
-	k = ft_strlen((char*)s1);
-	while (s2[i])
-	{
-		tmp[k] = s2[i];
-		k++;
-		i++;
-	}
-	tmp[k] = '\0';
-	return (tmp);
-}
+int				ft_issempty(char *tmp);
+int				ft_last_buff(t_read *r, char **line);
+int				get_next_line(const int fd, char **line);
+void			ft_reset(int *i, int *j);
+
+#endif

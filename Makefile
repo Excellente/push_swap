@@ -6,7 +6,7 @@
 #    By: emsimang <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/23 16:21:43 by emsimang          #+#    #+#              #
-#    Updated: 2016/11/23 14:59:46 by emsimang         ###   ########.fr        #
+#    Updated: 2016/11/24 14:37:10 by emsimang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libsort.a
 CC = gcc
 CFLAG = -c
 WFLAGS = #-Wall -Werror -Wextra
-SRC = error.c sub_ops_a.c push_swap.c validate_arg.c checker.c \
+SRC = wrappers.c sub_ops_a.c push_swap.c validate_arg.c checker.c \
 	  operations.c sort_seque.c stack_man.c stack_init.c conditions.c \
 
 LIBFT = libft/libft.a

@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:28:57 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/23 18:04:43 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/24 15:24:48 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int main(int ac, char **av)
 	char	**elem;
 	t_stack *p;
 
+
 	if (ac == 2)
 	{
 		ft_validate_args(av[1]);
 		elem = ft_strsplit(av[1], 32);
 		size = ft_strslen(elem);
-		if (size > 1)
+		if (size >= 1)
 		{
 			p = ft_new_stack(size);
 			ft_init_stack(&p, av[1]);

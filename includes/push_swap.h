@@ -23,9 +23,9 @@ struct	s_config
 
 struct	s_stack
 {
-	int	size;
-	int	max_elem;
-	int	*elements;
+	int		size;
+	int		max_elem;
+	int		*elements;
 	char	name[10];
 };
 
@@ -34,16 +34,12 @@ int		ft_pop(t_stack *p);
 int		ft_isfull(t_stack *p);
 int		ft_numcmp(t_stack *p);
 int		ft_isempty(t_stack *p);
-int		ft_analyze(t_stack *p);
 int		ft_issorted(t_stack *p);
 int		ft_isrsorted(t_stack *p);
 int		ft_can_rotate(t_stack *p);
-int		ft_get_biggest(t_stack *p);
 int		ft_can_rrotate(t_stack *p);
-int		ft_get_smallest(t_stack *p);
 int		ft_can_rr(t_stack *a, t_stack *b);
 int		ft_can_rrr(t_stack *a, t_stack *b);
-void	ft_error(char *e);
 void	ft_putop(char *o);
 void	ft_rotate(t_stack *p);
 void	ft_rrotate(t_stack *p);
@@ -57,6 +53,9 @@ void	ft_swap(t_stack *p, char *o);
 void	ft_check_args(int argc, char **a);
 void	ft_init_stack(t_stack **p, char *a);
 void	ft_print_stack(t_stack *a, char *n);
+void	ft_refill_a(t_stack *, t_stack *b);
+void	ft_swaping(t_stack *, t_stack *b);
+void	ft_rotation(t_stack *, t_stack *b);
 void	ft_push_in(char *o, char *c, t_stack *a, t_stack *b);
 void	ft_swap_in(char *o, char *c, t_stack *a, t_stack *b);
 void	ft_rot_stack(char * o, char *c, t_stack *a, t_stack *b);

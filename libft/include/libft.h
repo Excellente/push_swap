@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/15 14:36:11 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/22 11:57:32 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/11/24 09:50:00 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdio.h>
+# include "get_next_line.h"
 
 typedef	struct	s_index	t_index;
 struct	s_index
@@ -53,6 +55,8 @@ char	*ft_strcpy(char *dest, const char * src);
 char	*ft_strncpy(char *dest, const char *src, size_t len);
 char	*ft_strnew(size_t size);
 char	**ft_strsplit(char *s, char c);
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strsub(const char *s, unsigned int st, size_t n);
 void	ft_putchar(int c);
 void	ft_putnbr(int nb);
 void	ft_putstr(char *s);

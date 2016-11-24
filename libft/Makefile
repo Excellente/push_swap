@@ -6,7 +6,7 @@
 #    By: emsimang <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/13 14:17:32 by emsimang          #+#    #+#              #
-#    Updated: 2016/11/22 11:58:02 by emsimang         ###   ########.fr        #
+#    Updated: 2016/11/24 09:54:06 by emsimang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ SRC	 = ft_atoi.c\
 	   ft_strsub.c\
 	   ft_tolower.c\
 	   ft_toupper.c\
+	   get_next_line.c\
 
 INC = ./include/
 SRCDIR = ./src/
