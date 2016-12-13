@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/28 15:38:05 by emsimang          #+#    #+#             */
-/*   Updated: 2016/12/13 13:17:21 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 13:34:33 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_call_function(char **ops, t_stack *a, t_stack *b)
 	}
 }
 
-void	ft_free(char **e, t_stack *p)
+void	ft_c_free(char **e, t_stack *p)
 {
 	int	i;
 
@@ -49,7 +49,8 @@ void	ft_free(char **e, t_stack *p)
 void	ft_init(int ac, char **av, t_check *c)
 {
 	ft_validate_args(ac, av);
-	while (get_next_line(0, &c->line) == 1);
+	while (get_next_line(0, &c->line) == 1)
+		;
 	c->ops = ft_strsplit(c->line, '\n');
 	if (ac == 2)
 		c->elem = ft_strsplit(av[1], ' ');
@@ -59,35 +60,26 @@ void	ft_init(int ac, char **av, t_check *c)
 
 int		main(int ac, char **av)
 {
-/*	int		size;
-	char	**ops;
-	char	**elem;
-	char	*line;*/
+	int		size;
+	t_check c;
 	t_stack	*q;
 	t_stack	*p;
 
 	if (ac >= 2)
-	{/*
-		ft_validate_args(ac, av);
-		while (get_next_line(0, &line) == 1);
-		ops = ft_strsplit(line, '\n');
-		if (ac == 2)
-			elem = ft_strsplit(av[1], ' ');
-		else
-			elem = av;*/
+	{
 		ft_init(ac, av, &c);
-		size = ft_strslen(elem);
+		size = ft_strslen(c.elem);
 		p = ft_new_stack(size);
 		q = ft_new_stack(size);
 		ft_init_stack(&p, ac, av);
-		ft_call_function(ops, p, q);
+		ft_call_function(c.ops, p, q);
 		if (ft_issorted(p))
 			ft_putstr("OK\n");
 		else
 			ft_putstr("KO\n");
-		ft_free(ops, q);
+		ft_c_free(c.ops, q);
 		if (ac == 2)
-			ft_free(elem, p);
+			ft_c_free(c.elem, p);
 	}
 	return (0);
 }

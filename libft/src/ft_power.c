@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 12:42:51 by emsimang          #+#    #+#             */
-/*   Updated: 2016/06/17 12:44:01 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 13:49:50 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_power(int nbr, int power)
 {
 	int i;
 	int result;
-	
+
 	result = 1;
 	i = 0;
 	while (i < power)

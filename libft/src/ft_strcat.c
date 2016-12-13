@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/15 14:49:43 by emsimang          #+#    #+#             */
-/*   Updated: 2016/05/15 14:54:56 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 13:45:34 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcat(char *dest, const char *src)
 {
-	int	i;
+	int		i;
 	size_t	index;
 	size_t	res_str_len;
 

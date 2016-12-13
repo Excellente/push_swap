@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 13:02:55 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/24 09:22:26 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 13:47:05 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len)
 	size_t	i;
 	int		k;
 	char	*tmp;
-	
+
 	tmp = (char*)malloc(sizeof(char) * (len));
 	i = start;
 	k = 0;

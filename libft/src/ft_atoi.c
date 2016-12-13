@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 10:23:21 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/21 12:59:33 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 13:49:26 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_atoi(char *str)
 	while (str[index] >= 48 && str[index] <= 57)
 	{
 		num *= 10;
-		num +=  (int)(str[index] - '0');
+		num += (int)(str[index] - '0');
 		index++;
 	}
 	if (neg == 1)

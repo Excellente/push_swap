@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 13:13:48 by emsimang          #+#    #+#             */
-/*   Updated: 2016/06/17 13:16:15 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 13:53:57 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char		*ispos(int n, char *nb, char *rnb)
 {
 	int		i;
 	int		j;
-	
+
 	i = 0;
 	while (n)
 	{
@@ -42,7 +42,7 @@ char			*ft_uitoa(unsigned int n)
 {
 	char	*nb;
 	char	*rnb;
-	
+
 	nb = (char *)malloc(sizeof(char) * 12);
 	rnb = (char *)malloc(sizeof(char) * 12);
 	if (n < 10)

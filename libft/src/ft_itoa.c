@@ -6,12 +6,13 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 12:30:55 by emsimang          #+#    #+#             */
-/*   Updated: 2016/06/17 12:39:54 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 13:57:08 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-static char		*ispos(int n, char *nb, char *rnb)
+static char	*ispos(int n, char *nb, char *rnb)
 {
 	int		i;
 	int		j;
@@ -37,11 +38,11 @@ static char		*ispos(int n, char *nb, char *rnb)
 	return (rnb);
 }
 
-static char		*isneg(int n, char *nb, char *rnb)
+static char	*isneg(int n, char *nb, char *rnb)
 {
 	int		i;
 	int		j;
-	
+
 	i = 0;
 	n = n * -1;
 	while (n)
@@ -58,7 +59,6 @@ static char		*isneg(int n, char *nb, char *rnb)
 	{
 		rnb[i] = nb[--j];
 		i++;
-
 	}
 	rnb[i] = 0;
 	free(nb);
@@ -69,6 +69,7 @@ char		*ft_itoa(int n)
 {
 	char	*nb;
 	char	*rnb;
+
 	nb = (char *)malloc(sizeof(char) * 12);
 	rnb = (char *)malloc(sizeof(char) * 12);
 	if (n == -2147483648)

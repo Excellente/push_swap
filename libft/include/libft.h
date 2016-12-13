@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/15 14:36:11 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/24 09:50:00 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 13:43:47 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include "get_next_line.h"
 
-typedef	struct	s_index	t_index;
+typedef	struct s_index	t_index;
 struct	s_index
 {
 	int		i;
@@ -51,7 +51,7 @@ char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strncat(char *s1, char const *s2, size_t n);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchar(const char *str, int c);
-char	*ft_strcpy(char *dest, const char * src);
+char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strncpy(char *dest, const char *src, size_t len);
 char	*ft_strnew(size_t size);
 char	**ft_strsplit(char *s, char c);
@@ -68,7 +68,7 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, void *src, size_t n);
 void	*ft_memccpy(void *dst, void *src, int c, size_t n);
 void	*ft_memmove(void *dst, void *src, size_t n);
-void	*ft_memchr(const void *s, int c,  size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
