@@ -3,78 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: emsimang <ycribier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/01 08:40:05 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/24 15:45:27 by emsimang         ###   ########.fr       */
+/*   Created: 2013/12/03 12:45:25 by emsimang          #+#    #+#             */
+/*   Updated: 2016/12/13 12:27:18 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <unistd.h>
+#include "libft.h"
 
-void	ft_reset(int *i, int *j)
+static char	*proper_join(char *s1, char *s2)
 {
-	*i = 0;
-	*j = 0;
-}
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*result;
 
-int		ft_issempty(char *tmp)
-{
-	int i;
-
-	i = 0;
-	while (tmp[i] != '\0')
-		i++;
-	if (i > 0)
-		return (1);
-	return (0);
-}
-
-int		ft_last_buff(t_read *r, char **line)
-{
-	ft_strclr(*line);
-	while (r->buff[r->last] == '\n')
-		r->last++;
-	while (r->buff[r->last] != '\n' && r->buff[r->last] != '\0')
-		line[0][r->i++] = r->buff[r->last++];
-	if (r->buff[r->last] == '\n')
-		return (1);
-	return (0);
-}
-
-int		ft_read_line(int fd, t_read *r, char **line)
-{
-	ft_reset(&r->index, &r->last);
-	while (r->buff[r->index] != EOF &&
-	(r->ret = read(fd, r->buff, BUFF_SIZE)) > 0)
+	s1_len = (s1) ? ft_strlen(s1) : 0;
+	s2_len = ft_strlen(s2);
+	result = ft_strnew(s1_len + s2_len);
+	if (result)
 	{
-		ft_reset(&r->last, &r->index);
-		while (r->buff[r->index] != '\0' && r->buff[r->index] != EOF)
-			line[0][r->i++] = r->buff[r->index++];
+		if (s1)
+			ft_memcpy(result, s1, s1_len);
+		ft_memcpy(result + s1_len, s2, s2_len);
 	}
-	r->last = r->index;
-	line[0][r->i] = '\0';
-	return (r->last);
+	if (s1)
+		ft_strdel(&s1);
+	return (result);
 }
 
-int		get_next_line(const int fd, char **line)
+static int	cut_at_newline(char **save_buff, char **line)
 {
-	static	t_read	read;
+	char	*delimiter;
 
-	//if (fd == STDIN_FILENO)
-		//ft_strclr(read.buff);
-	read.ret = 0;
-	if (fd < 0 || line == NULL)
-		return (-1);
-	*line = (char *)malloc(sizeof(char) * 2048);
-	ft_reset(&read.i, &read.ret);
-	read.buff[BUFF_SIZE] = '\0';
-	if (read.buff[read.last] != '\0')
-		if ((read.ret = ft_last_buff(&read, line)) == 1)
-			return (1);
-	ft_strclr(read.buff);
-	read.last = ft_read_line(fd, &read, line);
-	if (read.ret > 0 && read.buff[read.last] == '\n')
+	if ((delimiter = ft_strchr(*save_buff, EOF)))
+	{
+		*line = ft_strsub(*save_buff, 0, delimiter - *save_buff);
+		ft_strcpy(*save_buff, delimiter + 1);
 		return (1);
-	return (read.ret);
+	}
+	return (0);
+}
+
+int			get_next_line(int const fd, char **line)
+{
+	int			bytes_read;
+	char		buff[BUFF_SIZE + 1];
+	static char	*save_buff = NULL;
+
+	if (save_buff && cut_at_newline(&save_buff, line))
+		return (1);
+	while ((bytes_read = read(fd, buff, BUFF_SIZE)) > 0)
+	{
+		buff[bytes_read] = '\0';
+		save_buff = proper_join(save_buff, buff);
+		if (cut_at_newline(&save_buff, line))
+			return (1);
+	}
+	if (bytes_read < 0)
+		return (-1);
+	if (save_buff && *save_buff)
+	{
+		*line = ft_strdup(save_buff);
+		ft_strdel(&save_buff);
+		return (1);
+	}
+	if (save_buff)
+		ft_strdel(&save_buff);
+	return (0);
 }

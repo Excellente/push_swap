@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:21:13 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/22 08:56:54 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 12:42:11 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_pop(t_stack *p)
 	else
 	{
 		val = '\0';
-		ft_putstr_fd(2,p->name);
+		ft_putstr_fd(2, p->name);
 		ft_print_error(" Error: [pop]empty stack.\n");
 	}
 	return (val);

@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:15:46 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/24 14:31:12 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 12:32:46 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int		ft_issorted(t_stack *a)
 		else
 			return (0);
 	}
-	return(1);
+	return (1);
 }
 
-int	ft_done(t_stack *a, t_stack *b)
+int		ft_done(t_stack *a, t_stack *b)
 {
 	if (ft_issorted(a) == 1 && ft_isempty(b) == 1)
 		return (1);

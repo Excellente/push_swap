@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:20:44 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/24 16:05:13 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 12:35:52 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,43 @@ void	ft_print_error(char *error)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_validate_args(char *str)
+void	ft_val_str(char *str)
 {
-	int		index;
-	char	**elems;
+	int index;
 
 	index = 0;
-	elems = ft_strsplit(str, ' ');
 	while (str[index] != '\0')
 	{
 		if (!(str[index] >= 48 && str[index] <= 57) && str[index] != 32)
 			ft_print_error("Error: invalid args.\n");
 		index++;
 	}
-	ft_error_repeat(elems);
+}
+
+void	ft_validate_args(int ac, char **str)
+{
+	int		index;
+	char	**elems;
+
 	index = 0;
-	while (elems[index])
-		free(elems[index++]);
-	free(elems);
+	if (ac == 2)
+	{
+		elems = ft_strsplit(str[1], ' ');
+		while (elems[index] != '\0')
+			ft_val_str(elems[index++]);
+		ft_error_repeat(elems);
+		while (elems[index])
+			free(elems[index++]);
+		free(elems);
+	}
+	else
+	{
+		elems = ++str;
+		while (elems[index] != '\0')
+			ft_val_str(elems[index++]);
+		ft_error_repeat(elems);
+	}
+	index = 0;
 }
 
 void	ft_error_repeat(char **str)

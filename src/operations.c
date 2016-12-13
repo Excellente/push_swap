@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/03 12:12:18 by emsimang          #+#    #+#             */
-/*   Updated: 2016/11/22 11:23:57 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/12/13 12:24:15 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putop(char *op_name)
 {
-	ft_putstr_fd(0, op_name);
-	ft_putstr("\n");
+	ft_putstr_fd(1, op_name);
+	ft_putstr_fd(1, "\n");
 }
 
 void	ft_push_in(char *op_name, char *caller, t_stack *a, t_stack *b)
